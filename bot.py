@@ -40,14 +40,14 @@ def saucenao(photo_url,chat_id):
         photo_file=requests.get(photo_url)
         files = {"file": (
         "saucenao.jpg", photo_file.content, "image/png")}
-        bot.send_message(chat_id=chat_id,text="正在搜索saucenao")
+        bot.send_message(chat_id=chat_id,text="正在搜尋saucenao")
         r = session.post(url=url, headers=Header, data=payloaddata,files=files)
         #r = session .get(url=url,headers=Header)
         soup = BeautifulSoup(r.text, 'html.parser')
         #print(soup.prettify())
         result=0
         choice=0
-        for img in soup.find_all('div', attrs={'class': 'result'}):  # 找到class="wrap"的div里面的所有<img>标签
+        for img in soup.find_all('div', attrs={'class': 'result'}):  # 找到class="wrap"的div裡面的所有<img>標籤
             #print(img)
             if('hidden' in str(img['class']))==False:
                 try:
@@ -92,7 +92,7 @@ def saucenao(photo_url,chat_id):
 
                 result=1
         if result==0:
-            bot.send_message(chat_id=chat_id, text="saucenao无结果")
+            bot.send_message(chat_id=chat_id, text="saucenao查無結果")
     except:
         print("saucenao")
 
@@ -112,7 +112,7 @@ def ascii2d(photo_url,chat_id):
             'utf8': "✓",
         }
         # files = {"file": "file": ('saber.jpg', open("saber.jpg", "rb", , "image/png")}
-        bot.send_message(chat_id=chat_id, text="正在搜索ascii2d")
+        bot.send_message(chat_id=chat_id, text="正在搜尋ascii2d")
         photo_file = requests.get(photo_url)
         files = {"file": (
             "saucenao.jpg", photo_file.content, "image/png")}
@@ -155,14 +155,14 @@ def anime(photo_url,chat_id):
 
         r = session.post(url=url, data=data)
         # r = session .get(url=url,headers=Header)
-        bot.send_message(chat_id=chat_id,text="正在搜索trace.moe")
+        bot.send_message(chat_id=chat_id,text="正在搜尋trace.moe")
         information = r.json()
         anilist_id = information['docs'][0]["anilist_id"]
         filename = information['docs'][0]['filename']
         tokenthumb = information['docs'][0]['tokenthumb']
         at = information['docs'][0]['at']
-        limit = information['limit']  # 剩余搜索次数
-        limit_ttl = information['limit_ttl']  # 剩余重置时间
+        limit = information['limit']  # 剩餘搜尋次數
+        limit_ttl = information['limit_ttl']  # 剩餘重置時間
         title = information['docs'][0]['title_chinese']
         episode = information['docs'][0]['episode']
         quota = information['quota']
@@ -176,7 +176,7 @@ def anime(photo_url,chat_id):
         video = f"https://media.trace.moe/video/{anilist_id}/{parse.quote(filename)}?t={at}&token={tokenthumb}"
         print(video)
         more_url = f"https://anilist.co/anime/{anilist_id}"
-        text = f"{similarity_num}\nTitle:{title}\n集数:{episode}\n时间：{datetime.timedelta(seconds=int(at))}\n来源：{filename}\n[更多信息]({more_url})\n分钟剩余搜索次数:{limit}\n分钟剩余次数重置时间:{limit_ttl}s\n24小时剩余搜索次数:{quota}\n24小时剩余次数重置时间:{datetime.timedelta(seconds=int(quota_ttl))}"
+        text = f"{similarity_num}\nTitle:{title}\n集數:{episode}\n時間：{datetime.timedelta(seconds=int(at))}\n來源：{filename}\n[更多資訊]({more_url})\n分鐘剩餘搜尋次數:{limit}\n分鐘剩餘次數重置時間:{limit_ttl}s\n24小時剩餘搜尋次數:{quota}\n24小時剩餘次數重置時間:{datetime.timedelta(seconds=int(quota_ttl))}"
         print(text)
         photo_file = session.get(img_url)
         bot.send_photo(chat_id=chat_id, photo=photo_file.content, parse_mode='Markdown', caption=text)

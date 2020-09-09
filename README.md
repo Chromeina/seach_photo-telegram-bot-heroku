@@ -1,8 +1,8 @@
 # TelegramBot
 
-一个聚合搜索图片的tg机器人,支持部署在heroku上。
+一個整合搜尋圖片的tg機器人,支援部署在heroku平台上。
 
-目前支持的网站：
+目前支援的網站：
 
 [saucenao](https://saucenao.com/)
 
@@ -12,18 +12,18 @@
 
 
 
-**安装方法:**
+**安裝方法:**
 
-登录heroku账号,后点击下面的按钮;若浏览器中已登录heroku则直接点击
+登入heroku帳號,後點擊下方的按鈕;若瀏覽器中已登入heroku則直接點擊
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 
 
-安装教程：[搜图机器人](http://weinb.top/index.php/2020/06/09/photo/)
+安裝方法：[搜圖機器人](http://weinb.top/index.php/2020/06/09/photo/)
 
 
 
-项目灵感:[CQ-picfinder-robot](https://github.com/Tsuk1ko/CQ-picfinder-robot)
+項目靈感:[CQ-picfinder-robot](https://github.com/Tsuk1ko/CQ-picfinder-robot)
 
-感谢：[TelegramBot](https://github.com/akashin/TelegramBot)
+感謝：[TelegramBot](https://github.com/akashin/TelegramBot)
